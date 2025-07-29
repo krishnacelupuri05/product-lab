@@ -5,6 +5,7 @@ const Dashboard = ({
   hasNurolePlus, 
   setCurrentPage, 
   viewJobDetails, 
+  viewEventDetails,
   handleSubscription 
 }) => (
   <div className="min-h-screen bg-white">
@@ -37,7 +38,7 @@ const Dashboard = ({
               <div className="p-4 border-b border-grey-100">
                 <div className="flex items-center space-x-3 mb-3">
                   <div className="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">
+                    <span className="text-white font-semibold text-sm">
                       {job.company.charAt(0)}
                     </span>
                   </div>
@@ -89,15 +90,20 @@ const Dashboard = ({
                   <span className="bg-red-100 text-red-600 px-2 py-1 rounded">RECOMMENDED</span>
                 </div>
                 
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    viewJobDetails(job.id);
-                  }}
-                  className="w-full button-primary text-xs py-2"
-                >
-                  View Details
-                </button>
+                <div className="space-y-2">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      viewJobDetails(job.id);
+                    }}
+                    className="button-secondary w-full text-xs py-2"
+                  >
+                    View Details
+                  </button>
+                  <button className="button-primary w-full text-xs py-2">
+                    Apply Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -118,13 +124,21 @@ const Dashboard = ({
       <section className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-title-h3 text-primary">Upcoming events</h2>
-          <div className="flex items-center space-x-2">
-            <button className="p-2 hover:bg-secondary rounded-full border border-grey-300">
-              <span className="material-symbols-rounded text-inactive">chevron_left</span>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => setCurrentPage('all-events')}
+              className="text-sage-600 text-sm hover:underline font-medium"
+            >
+              View all events →
             </button>
-            <button className="p-2 hover:bg-secondary rounded-full border border-grey-300">
-              <span className="material-symbols-rounded text-inactive">chevron_right</span>
-            </button>
+            <div className="flex items-center space-x-2">
+              <button className="p-2 hover:bg-secondary rounded-full border border-grey-300">
+                <span className="material-symbols-rounded text-inactive">chevron_left</span>
+              </button>
+              <button className="p-2 hover:bg-secondary rounded-full border border-grey-300">
+                <span className="material-symbols-rounded text-inactive">chevron_right</span>
+              </button>
+            </div>
           </div>
         </div>
         
@@ -172,18 +186,26 @@ const Dashboard = ({
                 </div>
               </div>
               
-              {hasNurolePlus ? (
-                <button className="button-primary w-full">
-                  Register Now
-                </button>
-              ) : (
+              <div className="space-y-2">
                 <button 
-                  onClick={handleSubscription}
-                  className="button-primary w-full"
+                  onClick={() => viewEventDetails(1)}
+                  className="button-secondary w-full text-sm"
                 >
-                  Upgrade to Join
+                  View Details
                 </button>
-              )}
+                {hasNurolePlus ? (
+                  <button className="button-primary w-full">
+                    Register Now
+                  </button>
+                ) : (
+                  <button 
+                    onClick={handleSubscription}
+                    className="button-primary w-full"
+                  >
+                    Upgrade to Join
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -230,18 +252,26 @@ const Dashboard = ({
                 </div>
               </div>
               
-              {hasNurolePlus ? (
-                <button className="button-primary w-full">
-                  Register Now
-                </button>
-              ) : (
+              <div className="space-y-2">
                 <button 
-                  onClick={handleSubscription}
-                  className="button-primary w-full"
+                  onClick={() => viewEventDetails(2)}
+                  className="button-secondary w-full text-sm"
                 >
-                  Upgrade to Join
+                  View Details
                 </button>
-              )}
+                {hasNurolePlus ? (
+                  <button className="button-primary w-full">
+                    Register Now
+                  </button>
+                ) : (
+                  <button 
+                    onClick={handleSubscription}
+                    className="button-primary w-full"
+                  >
+                    Upgrade to Join
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -288,18 +318,26 @@ const Dashboard = ({
                 </div>
               </div>
               
-              {hasNurolePlus ? (
-                <button className="button-primary w-full">
-                  Register Now
-                </button>
-              ) : (
+              <div className="space-y-2">
                 <button 
-                  onClick={handleSubscription}
-                  className="button-primary w-full"
+                  onClick={() => viewEventDetails(3)}
+                  className="button-secondary w-full text-sm"
                 >
-                  Upgrade to Join
+                  View Details
                 </button>
-              )}
+                {hasNurolePlus ? (
+                  <button className="button-primary w-full">
+                    Register Now
+                  </button>
+                ) : (
+                  <button 
+                    onClick={handleSubscription}
+                    className="button-primary w-full"
+                  >
+                    Upgrade to Join
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 

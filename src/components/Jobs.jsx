@@ -9,7 +9,7 @@ const JobCard = ({ job, isRecommended = false, viewJobDetails }) => (
           {/* Company Logo */}
           <div className="w-16 h-16 bg-white rounded-lg border border-grey-200 flex items-center justify-center shadow-sm">
             <div className="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">
+              <span className="text-white font-semibold text-lg">
                 {job.company.charAt(0)}
               </span>
             </div>
@@ -48,7 +48,7 @@ const JobCard = ({ job, isRecommended = false, viewJobDetails }) => (
     {/* Role Content Section */}
     <div className="px-6 py-4">
       {/* Role Title */}
-      <h2 className="text-xl font-bold text-grey-900 mb-2">{job.title}</h2>
+      <h2 className="text-xl font-semibold text-grey-900 mb-2">{job.title}</h2>
       
       {/* Role Description */}
       <p className="text-grey-700 mb-4 line-clamp-3 leading-relaxed">{job.description}</p>
@@ -75,17 +75,14 @@ const JobCard = ({ job, isRecommended = false, viewJobDetails }) => (
       </div>
 
       {/* Action Buttons */}
-      <div className="flex gap-3">
+      <div className="space-y-2">
         <button 
           onClick={() => viewJobDetails(job.id)}
-          className="button-primary">
+          className="button-secondary w-full">
           View details
         </button>
-        <button className="button-secondary">
-          Quick Apply
-        </button>
-        <button className="button-secondary">
-          Recommend
+        <button className="button-primary w-full">
+          Apply Now
         </button>
       </div>
 
@@ -115,7 +112,8 @@ const Jobs = ({
   hasNurolePlus,
   handleSubscription,
   setCurrentPage,
-  viewJobDetails
+  viewJobDetails,
+  viewEventDetails
 }) => (
   <div className="container mx-auto px-4 py-8">
     {/* Search and Filters */}
@@ -625,7 +623,13 @@ const Jobs = ({
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="space-y-2">
+              <button 
+                onClick={() => viewEventDetails(1)}
+                className="button-secondary w-full text-sm"
+              >
+                View Details
+              </button>
               {hasNurolePlus ? (
                 <button className="button-primary w-full">
                   <span className="material-symbols-rounded mr-2">event_available</span>
@@ -665,7 +669,13 @@ const Jobs = ({
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="space-y-2">
+              <button 
+                onClick={() => viewEventDetails(2)}
+                className="button-secondary w-full text-sm"
+              >
+                View Details
+              </button>
               {hasNurolePlus ? (
                 <button className="button-primary w-full">
                   <span className="material-symbols-rounded mr-2">event_available</span>
@@ -705,7 +715,13 @@ const Jobs = ({
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="space-y-2">
+              <button 
+                onClick={() => viewEventDetails(3)}
+                className="button-secondary w-full text-sm"
+              >
+                View Details
+              </button>
               {hasNurolePlus ? (
                 <button className="button-primary w-full">
                   <span className="material-symbols-rounded mr-2">event_available</span>
@@ -730,7 +746,7 @@ const Jobs = ({
             <div className="flex items-center justify-center mb-4">
               <span className="material-symbols-rounded text-3xl mr-3 text-sage-600">check_circle</span>
               <div>
-                <h3 className="text-xl font-bold text-primary">Welcome to Nurole Plus!</h3>
+                <h3 className="text-xl font-semibold text-primary">Welcome to Nurole Plus!</h3>
                 <p className="text-secondary">You now have access to all exclusive events and premium features</p>
               </div>
             </div>
@@ -771,7 +787,7 @@ const Jobs = ({
             <div className="flex items-center justify-center mb-4">
               <span className="material-symbols-rounded text-3xl mr-3 text-orange-600">celebration</span>
               <div>
-                <h3 className="text-xl font-bold text-primary">Unlock All Events with Nurole Plus</h3>
+                <h3 className="text-xl font-semibold text-primary">Unlock All Events with Nurole Plus</h3>
                 <p className="text-secondary">Join 65,000+ board professionals accessing exclusive events and networking</p>
               </div>
             </div>

@@ -52,6 +52,7 @@ A comprehensive job board platform specifically designed for Non-Executive Direc
 - **Cards**: Clean white backgrounds with subtle shadows
 - **Forms**: Consistent input styling with focus states
 - **Navigation**: Tab-based navigation with active states
+- **Typography**: Consistent use of font-semibold for headings and emphasis
 
 ## 📁 Project Structure
 

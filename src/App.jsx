@@ -86,6 +86,7 @@ function App() {
   })
   const [showOnlyRecommended, setShowOnlyRecommended] = useState(true)
   const [selectedJobId, setSelectedJobId] = useState(null) // Track selected job for details view
+  const [selectedEventId, setSelectedEventId] = useState(null) // Track selected event for details view
 
   const toggleFilter = (filterName) => {
     setSelectedFilters(prev => ({
@@ -110,6 +111,12 @@ function App() {
   const goBackToJobs = () => {
     setSelectedJobId(null)
     setCurrentPage('jobs')
+  }
+
+  // Function to view event details
+  const viewEventDetails = (eventId) => {
+    setSelectedEventId(eventId)
+    setCurrentPage('event-details')
   }
 
   const filteredJobs = dummyJobs.filter(job => {
@@ -141,7 +148,7 @@ function App() {
       {/* Hero Section */}
       <div className="bg-gradient-to-b from-gray-50 to-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+          <h1 className="text-5xl font-semibold text-gray-800 mb-4">
             Great Board Careers Start With a Plan
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -150,24 +157,24 @@ function App() {
           
           <div className="flex justify-center space-x-8 mb-12">
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">65,000+</div>
+              <div className="text-3xl font-semibold text-green-600">65,000+</div>
               <div className="text-gray-600">Members</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">2,000+</div>
+              <div className="text-3xl font-semibold text-green-600">2,000+</div>
               <div className="text-gray-600">Roles</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">500+</div>
+              <div className="text-3xl font-semibold text-green-600">500+</div>
               <div className="text-gray-600">Organizations</div>
             </div>
           </div>
 
           {/* Pricing Card */}
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg border border-gray-200 p-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">Nurole Plus</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-2">Nurole Plus</h3>
             <div className="flex items-baseline justify-center mb-4">
-              <span className="text-4xl font-bold text-gray-800">£600</span>
+              <span className="text-4xl font-semibold text-gray-800">£600</span>
               <span className="text-gray-600 ml-2">/year</span>
             </div>
             <div className="text-green-600 font-medium mb-6">30-day free trial</div>
@@ -189,10 +196,10 @@ function App() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Roles Membership */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Roles membership</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Roles membership</h3>
                 <div className="mb-6">
                   <div className="flex items-baseline">
-                    <span className="text-4xl font-bold text-gray-800">£150</span>
+                    <span className="text-4xl font-semibold text-gray-800">£150</span>
                     <span className="text-gray-600 ml-1">/year</span>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">Annual subscription</p>
@@ -228,10 +235,10 @@ function App() {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Nurole Plus membership</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Nurole Plus membership</h3>
                 <div className="mb-6">
                   <div className="flex items-baseline">
-                    <span className="text-4xl font-bold text-gray-800">£600</span>
+                    <span className="text-4xl font-semibold text-gray-800">£600</span>
                     <span className="text-gray-600 ml-1">/year</span>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">Annual subscription</p>
@@ -321,10 +328,10 @@ function App() {
 
               {/* Premium Membership */}
               <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Premium membership</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Premium membership</h3>
                 <div className="mb-6">
                   <div className="flex items-baseline">
-                    <span className="text-4xl font-bold text-gray-800">£840</span>
+                    <span className="text-4xl font-semibold text-gray-800">£840</span>
                     <span className="text-gray-600 ml-1">/year</span>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">Annual subscription</p>
@@ -465,10 +472,10 @@ function App() {
       {/* Testimonials */}
       <div className="py-16 bg-green-800 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">
+          <h2 className="text-3xl font-semibold text-center mb-4">
             Trusted by over 65,000 people and
           </h2>
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-semibold text-center mb-12">
             500+ organizations
           </h2>
           
@@ -512,7 +519,7 @@ function App() {
       {/* FAQ */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">
             Frequently Asked Questions
           </h2>
           
@@ -559,7 +566,7 @@ function App() {
       {/* CTA Section */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
             Ready to Move Your Board Career Forward?
           </h2>
           <button 
@@ -688,11 +695,11 @@ function App() {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <div className="flex items-center mb-4">
-                <span className="text-lg font-bold tracking-wider mr-4">NUROLE+</span>
+                <span className="text-lg font-semibold tracking-wider mr-4">NUROLE+</span>
                 <div className="w-1 h-16 bg-yellow-400 mr-6"></div>
                 <div>
-                  <h1 className="text-4xl font-bold mb-2">Letter from</h1>
-                  <h1 className="text-4xl font-bold">our <span className="italic text-yellow-300">CEO</span></h1>
+                  <h1 className="text-4xl font-semibold mb-2">Letter from</h1>
+                  <h1 className="text-4xl font-semibold">our <span className="italic text-yellow-300">CEO</span></h1>
                   <p className="text-xl mt-2 font-light tracking-wide">OLIVER CUMMINGS</p>
                 </div>
               </div>
@@ -708,7 +715,7 @@ function App() {
         {/* Content */}
         <div className="p-8 max-w-4xl">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">Welcome to the Nurole+</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">Welcome to the Nurole+</h2>
             <div className="flex items-center space-x-2">
               <button className="p-1 hover:bg-white rounded">📖</button>
               <button className="p-1 hover:bg-white rounded">⋯</button>
@@ -782,7 +789,7 @@ function App() {
         <div className="flex-1">
           <div className="flex items-center mb-2">
             <div className="w-12 h-12 bg-sage-600 rounded-lg flex items-center justify-center mr-4">
-              <span className="text-invert font-bold text-lg">
+              <span className="text-invert font-semibold text-lg">
                 {job.company.charAt(0)}
               </span>
             </div>
@@ -1147,7 +1154,7 @@ function App() {
               <div className="flex items-center justify-center mb-4">
                 <span className="material-symbols-rounded text-3xl mr-3 text-sage-600">check_circle</span>
                 <div>
-                  <h3 className="text-xl font-bold text-primary">Welcome to Nurole Plus!</h3>
+                  <h3 className="text-xl font-semibold text-primary">Welcome to Nurole Plus!</h3>
                   <p className="text-secondary">You now have access to all exclusive events and premium features</p>
                 </div>
               </div>
@@ -1188,7 +1195,7 @@ function App() {
               <div className="flex items-center justify-center mb-4">
                 <span className="material-symbols-rounded text-3xl mr-3 text-orange-600">celebration</span>
                 <div>
-                  <h3 className="text-xl font-bold text-primary">Unlock All Events with Nurole Plus</h3>
+                  <h3 className="text-xl font-semibold text-primary">Unlock All Events with Nurole Plus</h3>
                   <p className="text-secondary">Join 65,000+ board professionals accessing exclusive events and networking</p>
                 </div>
               </div>
@@ -1425,11 +1432,11 @@ function App() {
                 <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
                   {/* Profile Header */}
                   <div className="flex items-start gap-6 mb-8">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center text-white text-2xl font-semibold">
                       KC
                     </div>
                     <div className="flex-1">
-                      <h1 className="text-3xl font-bold text-gray-800 mb-2">Krishna Celupuri</h1>
+                      <h1 className="text-3xl font-semibold text-gray-800 mb-2">Krishna Celupuri</h1>
                       <p className="text-gray-600 mb-1">United Kingdom</p>
                       <p className="text-gray-600 mb-3">1234567890045</p>
                       <div className="flex items-center text-blue-600 mb-4">
@@ -1573,10 +1580,10 @@ function App() {
       return (
         <div className="min-h-screen bg-white flex items-center justify-center">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Role not found</h2>
+            <h2 className="text-2xl font-semibold text-primary mb-4">Role not found</h2>
             <button 
               onClick={goBackToJobs}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded transition-colors"
+              className="button-primary"
             >
               Back to Roles
             </button>
@@ -1592,267 +1599,844 @@ function App() {
           <div className="mb-6">
             <button 
               onClick={goBackToJobs}
-              className="flex items-center text-gray-600 hover:text-gray-800 transition-colors"
+              className="flex items-center text-grey-600 hover:text-grey-800 transition-colors"
             >
-              ← BACK
+              ← Back to Roles
             </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-                {/* Role Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex-1">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{job.title}</h1>
-                    <h2 className="text-xl text-gray-600 mb-4">{job.company}</h2>
-                    <div className="flex items-center space-x-4 mb-4">
-                      <span className="bg-red-100 text-red-600 px-3 py-1 rounded text-sm font-medium">
-                        PRO BONO
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-6 text-sm text-gray-600 mb-6">
-                      <div className="flex items-center">
-                        <span className="mr-2">🏢</span>
-                        <span>4 Board meetings per year</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="mr-2">📍</span>
-                        <span>{job.location}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="mr-2">📅</span>
-                        <span>Deadline: {job.deadline}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2 ml-6">
-                    <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded text-sm">
-                      BREAST CANCER NOW
+          {/* Role Header */}
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-sage-600 to-blue-600 rounded-lg p-8 text-white mb-6">
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium mr-3">
+                      {job.category}
                     </span>
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {job.compensation.includes('Pro bono') ? 'Pro Bono' : 'Compensated'}
+                    </span>
+                    {job.recommended && (
+                      <span className="bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-full text-sm font-medium ml-2">
+                        Recommended
+                      </span>
+                    )}
                   </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex items-center space-x-4 mb-8">
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    Quick Apply
-                  </button>
-                  <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
-                    + Add to watchlist
-                  </button>
-                  <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
-                    📤 Share
-                  </button>
-                </div>
-
-                {/* Role Details Tabs */}
-                <div className="mb-6">
-                  <div className="flex space-x-8 border-b border-gray-200">
-                    <button className="pb-2 text-green-600 border-b-2 border-green-600 font-medium">
-                      🏢 ROLE DETAILS
-                    </button>
-                    <button className="pb-2 text-gray-500 hover:text-gray-700">
-                      🔍 RECOMMENDED CANDIDATES
-                    </button>
-                  </div>
-                </div>
-
-                {/* About Section */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">About {job.company}</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {job.description}
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    As the charity that brings together world-class research with life-changing care, we're working to stop women dying from breast cancer by 2050. With a footprint in the UK and Europe, our leadership led to two successful fundraising campaigns and a 40% increase in research funding over five years.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    Breast Cancer Now is focused on the integrated strategy to place the voice of people with breast cancer at the centre of our work.
-                  </p>
-                </section>
-
-                {/* The Campaign Section */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">The Campaign</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    We believe the campaign is launching an ambitious new campaign in Autumn 2024, which will raise even more by 2030. The campaign will build research funding and awareness supporting the overall vision, while looking through a global evidence base to drive better progress.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    A campaign bringing primary breast cancer treatment will drive access to the information they need to help reduce future research gaps, drive evidence, increase treatment investments.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    As part of our approach to become the UK's largest academic funder of breast cancer research and a catalyst for global research, Breast Cancer Now needs to continue change. By utilising and more £100m over the next five years, along business set event.
-                  </p>
-                </section>
-
-                {/* Role Specification */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Role specification</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    The Campaign Board is led by Breast Cancer Now's appointed CEO Delyth and Chair of Ethics & Sponsor and UK Government Organisations Advisory Board's appointed by the Board of Trustees. It will comprise the Chair of Breast Cancer Now, a nominated Board Trustee, and a senior group including an active Breast Cancer Now campaign and board-led directors.
-                  </p>
+                  <h1 className="text-4xl font-semibold mb-3">{job.title}</h1>
+                  <p className="text-xl opacity-90 mb-4">{job.company}</p>
                   
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Key responsibilities include:</h4>
-                      <ul className="list-disc list-inside space-y-2 text-gray-700">
-                        <li>Working closely with the charity's leadership and philanthropic experts, with nearly 15 years of experience</li>
-                        <li>You will be instrumental to the charity's Breast Cancer Now campaigns, including and delivering strong membership and communications training with philanthropic fundraising by brand members in a professional and timely manner</li>
-                        <li>They will have accountability experience and experience the fundraising techniques at meetings Breast Cancer Now</li>
-                        <li>You will have the right experience to lead members' help with the charity's helpline centres, their people affected by breast cancer, budget fit timely, Client fit and advice helpline work experience for organisations bringing staff to the audit as well as access to their delivering work funded by the Campaign</li>
-                      </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">business</span>
+                      <span>{job.company}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">location_on</span>
+                      <span>{job.location}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">payments</span>
+                      <span>{job.compensation}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">event</span>
+                      <span>Deadline: {job.deadline}</span>
                     </div>
                   </div>
-                </section>
-
-                {/* Person Specification */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Person specification</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    At this point in the campaign journey, we are looking for driven and ambitious Campaign Board Members who are further supported to focus a role of voluntary breast cancer. Breast Cancer is working alongside Campaign Board Members, under the leadership of Robyn Campbell CBE, one by some have a variety of backgrounds but will be looking for others who may have experience an exciting, challenging, experience or achieving, value assumptions by the team, their group don't hesitate to get in touch too for "Questions & feedback" box below or directly via campaigns@breastcancernow.org.
-                  </p>
-                </section>
-
-                {/* Terms of Appointment */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Terms of appointment</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    The role is unpaid and the Campaign Board will meet quarterly, so each half of which will be in-person beyond these. There will be ad-hoc engagement and the potential for focused working group meetings. The appointment is on a initial three year term.
-                  </p>
-                </section>
-
-                {/* Process */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Process</h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    This role is advertised equal opportunities with the team. Potential down Tuesday to get a detail via the "<a href="#" className="text-blue-600 hover:underline">Questions & feedback</a>" box below or directly via campaigns@breastcancernow.org and we are delighted to hear from you.
-                  </p>
-                  <p className="text-gray-700 leading-relaxed">
-                    <strong>Interested parties</strong><br />
-                    If you would like to find out more about the role before official follow directly, contact it you know someone in our Breast Cancer Now Application, board members if in our Request for Applications should members should via out contact this may ask having their own direct message.
-                  </p>
-                </section>
-
-                {/* Questions & Feedback */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Questions & feedback</h3>
-                  <p className="text-gray-700 mb-4">
-                    Please reach out regarding any queries you may have about this role. We'll get back to you via email within two working days.
-                  </p>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                      <span className="text-gray-600">👤</span>
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-800">Josh Dernie</div>
-                      <div className="text-sm text-gray-600">Operations Manager</div>
-                    </div>
-                  </div>
-                </section>
-
-                {/* Submit Questions Button */}
-                <div className="mb-8">
-                  <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-2 rounded-lg transition-colors">
-                    Submit questions
-                  </button>
                 </div>
-
-                {/* Role Timetable */}
-                <section className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Role timetable</h3>
-                  <div className="space-y-2 text-gray-700">
-                    <div><strong>Deadline for applications:</strong> Midnight on 23rd July</div>
-                    <div><strong>Candidate on expect to be contacted by:</strong> 1st August</div>
-                  </div>
-                </section>
-
-                {/* Final Action Buttons */}
-                <div className="flex items-center space-x-4 pt-6 border-t border-gray-200">
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    Quick Apply
+                
+                <div className="ml-8 flex flex-col items-end space-y-3">
+                  <button className="bg-white text-sage-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                    Apply Now
                   </button>
-                  <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
-                    Recommend someone
-                  </button>
-                  <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
-                    + Add to watchlist
+                  <button className="bg-white bg-opacity-20 text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-30 transition-colors">
+                    Save Role
                   </button>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-6">
-                <h3 className="font-semibold text-gray-800 mb-4">Role Summary</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* About Organization */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">About {job.company}</h2>
+                <p className="text-grey-700 leading-relaxed mb-6">{job.description}</p>
                 
+                <div className="flex flex-wrap gap-2">
+                  {job.skills.map((skill, index) => (
+                    <span key={index} className="bg-sage-100 text-sage-700 px-3 py-1 rounded-full text-sm">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              {/* Role Overview */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">Role Overview</h2>
+                <div className="space-y-4">
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h3 className="font-semibold text-grey-900 mb-2">Key Responsibilities</h3>
+                    <ul className="space-y-2 text-grey-700">
+                      <li className="flex items-start space-x-2">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span>Provide strategic oversight and governance to the organization</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span>Support senior management in key decision-making processes</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span>Monitor organizational performance and risk management</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span>Ensure compliance with regulatory requirements</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Person Specification */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">What We're Looking For</h2>
                 <div className="space-y-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Organization Type</div>
-                    <div className="font-medium text-gray-800 capitalize">{job.companyType}</div>
+                    <h3 className="font-semibold text-grey-900 mb-3">Essential Requirements</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span className="text-grey-700">Significant senior leadership experience in relevant sector</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span className="text-grey-700">Strong understanding of governance and board dynamics</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span className="text-grey-700">Experience in strategic planning and organizational development</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                        <span className="text-grey-700">Commitment to the organization's mission and values</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold text-grey-900 mb-3">Desirable Skills</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-blue-600 text-sm mt-1">star</span>
+                        <span className="text-grey-700">Financial management and audit experience</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-blue-600 text-sm mt-1">star</span>
+                        <span className="text-grey-700">Digital transformation and technology expertise</span>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <span className="material-symbols-rounded text-blue-600 text-sm mt-1">star</span>
+                        <span className="text-grey-700">Previous non-executive director experience</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Application Process */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">Application Process</h2>
+                <div className="space-y-4">
+                  <div className="bg-white border border-grey-200 rounded-lg p-4">
+                    <h3 className="font-semibold text-grey-900 mb-3">Timeline</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3">
+                        <span className="bg-sage-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
+                        <div>
+                          <div className="font-medium text-grey-900">Application Deadline</div>
+                          <div className="text-sm text-grey-600">{job.deadline}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <span className="bg-grey-300 text-grey-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">2</span>
+                        <div>
+                          <div className="font-medium text-grey-900">Initial Review</div>
+                          <div className="text-sm text-grey-600">Within 2 weeks of deadline</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center space-x-3">
+                        <span className="bg-grey-300 text-grey-600 w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
+                        <div>
+                          <div className="font-medium text-grey-900">Interviews</div>
+                          <div className="text-sm text-grey-600">Final 2 weeks of process</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div>
-                    <div className="text-sm text-gray-600 mb-1">Location</div>
-                    <div className="font-medium text-gray-800">{job.location}</div>
+                  <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                    <h3 className="font-semibold text-grey-900 mb-2">Application Requirements</h3>
+                    <p className="text-sm text-grey-700">
+                      Please submit a CV and covering letter explaining your interest in the role and how your experience aligns with our requirements.
+                    </p>
                   </div>
-                  
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Role Details Card */}
+              <div className="bg-white border border-grey-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-grey-900 mb-4">Role Details</h3>
+                <div className="space-y-4">
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Compensation</div>
-                    <div className="font-medium text-gray-800">{job.compensation}</div>
+                    <div className="text-sm text-grey-600 mb-1">Organization Type</div>
+                    <div className="font-medium text-grey-900">{job.category}</div>
                   </div>
-                  
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Time Commitment</div>
-                    <div className="font-medium text-gray-800">{job.meetingsPerYear}</div>
+                    <div className="text-sm text-grey-600 mb-1">Location</div>
+                    <div className="font-medium text-grey-900">{job.location}</div>
                   </div>
-                  
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Application Deadline</div>
-                    <div className="font-medium text-gray-800">{job.deadline}</div>
+                    <div className="text-sm text-grey-600 mb-1">Compensation</div>
+                    <div className="font-medium text-grey-900">{job.compensation}</div>
                   </div>
-                  
                   <div>
-                    <div className="text-sm text-gray-600 mb-1">Key Skills</div>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {job.skills.map((skill, index) => (
-                        <span key={index} className="bg-white text-gray-700 px-2 py-1 rounded text-xs">
-                          {skill}
-                        </span>
-                      ))}
+                    <div className="text-sm text-grey-600 mb-1">Time Commitment</div>
+                    <div className="font-medium text-grey-900">{job.meetingsPerYear}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-grey-600 mb-1">Application Deadline</div>
+                    <div className="font-medium text-sage-600">{job.deadline}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Application Requirements */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-grey-900 mb-3">Application Tips</h3>
+                <ul className="space-y-2 text-sm text-grey-700">
+                  <li className="flex items-start space-x-2">
+                    <span className="material-symbols-rounded text-blue-600 text-sm mt-0.5">lightbulb</span>
+                    <span>Highlight relevant board experience</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="material-symbols-rounded text-blue-600 text-sm mt-0.5">lightbulb</span>
+                    <span>Demonstrate sector knowledge</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="material-symbols-rounded text-blue-600 text-sm mt-0.5">lightbulb</span>
+                    <span>Show passion for the mission</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                <button className="button-primary w-full">
+                  Apply for Role
+                </button>
+                <button className="button-secondary w-full">
+                  Save Role
+                </button>
+                <button className="button-secondary w-full">
+                  Share Role
+                </button>
+                <button className="button-secondary w-full">
+                  Recommend Someone
+                </button>
+              </div>
+
+              {/* Similar Roles */}
+              <div className="bg-white border border-grey-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-grey-900 mb-4">Similar Roles</h3>
+                <div className="space-y-3">
+                  {dummyJobs.filter(j => j.id !== job.id && j.category === job.category).slice(0, 2).map(similarJob => (
+                    <div key={similarJob.id} 
+                         className="border border-grey-200 rounded-lg p-3 hover:shadow-sm cursor-pointer transition-all hover:border-sage-300"
+                         onClick={() => viewJobDetails(similarJob.id)}>
+                      <div className="font-medium text-grey-900 text-sm mb-1 line-clamp-2">{similarJob.title}</div>
+                      <div className="text-grey-600 text-xs mb-1">{similarJob.company}</div>
+                      <div className="text-gray-500 text-xs mt-1">{similarJob.location}</div>
+                    </div>
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setCurrentPage('jobs')}
+                  className="text-sage-600 text-sm hover:underline mt-3 block"
+                >
+                  View all roles →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const EventDetailsPage = () => {
+    // Sample event data - in a real app this would come from an API
+    const eventDetails = {
+      1: {
+        title: "Board Masterminds: Strategy Session",
+        description: "Interactive workshop on strategic thinking for board directors",
+        longDescription: "Join us for an intensive strategy session designed specifically for board directors. This interactive workshop will cover key strategic thinking frameworks, real-world case studies, and practical tools you can apply in your board role. Led by experienced board chairs and strategy consultants, this session provides a unique opportunity to enhance your strategic oversight capabilities.",
+        date: "March 15, 2024",
+        time: "2:00 PM GMT",
+        duration: "2 hours",
+        location: "Virtual Event",
+        maxAttendees: 50,
+        spotsRemaining: 45,
+        type: "Workshop",
+        level: "Intermediate",
+        facilitator: "Sarah Johnson, Former FTSE 100 Chair",
+        agenda: [
+          "Welcome and introductions (15 mins)",
+          "Strategic frameworks for board oversight (45 mins)",
+          "Case study analysis (30 mins)",
+          "Break (15 mins)",
+          "Interactive strategy simulation (30 mins)",
+          "Q&A and wrap-up (15 mins)"
+        ],
+        learningOutcomes: [
+          "Master key strategic frameworks for board decision-making",
+          "Develop skills in strategic questioning and challenge",
+          "Learn to identify strategic risks and opportunities",
+          "Practice strategic oversight in realistic scenarios"
+        ],
+        requirements: "Basic understanding of board governance. Preparation materials will be sent 48 hours before the session.",
+        tags: ["Strategy", "Workshop", "Interactive", "Board Skills"]
+      },
+      2: {
+        title: "NED Networking Evening",
+        description: "Connect with fellow non-executive directors in London",
+        longDescription: "An exclusive networking evening for non-executive directors in Central London. This informal gathering provides an opportunity to connect with peers, share experiences, and build valuable professional relationships within the NED community.",
+        date: "March 20, 2024",
+        time: "6:00 PM GMT",
+        duration: "3 hours",
+        location: "The Shard, London",
+        maxAttendees: 80,
+        spotsRemaining: 35,
+        type: "Networking",
+        level: "All Levels",
+        facilitator: "Hosted by Nurole Plus Team",
+        agenda: [
+          "Welcome drinks and registration (30 mins)",
+          "Structured networking activities (60 mins)",
+          "Panel discussion: 'Current Board Trends' (30 mins)",
+          "Open networking and dinner (60 mins)"
+        ],
+        learningOutcomes: [
+          "Expand your professional NED network",
+          "Share experiences with fellow directors",
+          "Learn about current market trends",
+          "Discover new board opportunities"
+        ],
+        requirements: "Current or aspiring non-executive directors. Smart casual dress code.",
+        tags: ["Networking", "In-Person", "Social", "Career Development"]
+      },
+      3: {
+        title: "ESG Oversight Masterclass",
+        description: "Deep dive into environmental, social, and governance oversight",
+        longDescription: "A comprehensive masterclass on ESG oversight for board directors. This session covers the latest regulatory requirements, best practices in ESG governance, and practical tools for effective ESG oversight at board level.",
+        date: "March 25, 2024",
+        time: "1:00 PM GMT",
+        duration: "90 minutes",
+        location: "Virtual Event",
+        maxAttendees: 100,
+        spotsRemaining: 72,
+        type: "Masterclass",
+        level: "Advanced",
+        facilitator: "Dr. Michael Chen, ESG Advisory Partner",
+        agenda: [
+          "ESG regulatory landscape overview (20 mins)",
+          "Board's role in ESG strategy (25 mins)",
+          "ESG risk management frameworks (25 mins)",
+          "ESG reporting and disclosure (15 mins)",
+          "Q&A session (5 mins)"
+        ],
+        learningOutcomes: [
+          "Understand current ESG regulatory requirements",
+          "Learn best practices for ESG board oversight",
+          "Master ESG risk assessment techniques",
+          "Develop ESG reporting knowledge"
+        ],
+        requirements: "Basic knowledge of governance principles. ESG background helpful but not essential.",
+        tags: ["ESG", "Governance", "Regulatory", "Risk Management"]
+      }
+    }
+
+    const event = eventDetails[selectedEventId] || eventDetails[1]
+
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="container mx-auto px-4 py-8">
+          {/* Back Button */}
+          <div className="mb-6">
+            <button 
+              onClick={() => setCurrentPage('dashboard')}
+              className="flex items-center text-grey-600 hover:text-grey-800 transition-colors"
+            >
+              ← Back to Events
+            </button>
+          </div>
+
+          {/* Event Header */}
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-blue-600 to-sage-600 rounded-lg p-8 text-white mb-6">
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center mb-3">
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium mr-3">
+                      {event.type}
+                    </span>
+                    <span className="bg-white bg-opacity-20 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {event.level}
+                    </span>
+                  </div>
+                  <h1 className="text-4xl font-semibold mb-3">{event.title}</h1>
+                  <p className="text-xl opacity-90 mb-4">{event.description}</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">event</span>
+                      <span>{event.date} • {event.time}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">schedule</span>
+                      <span>{event.duration}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">location_on</span>
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="material-symbols-rounded mr-2">group</span>
+                      <span>{event.spotsRemaining} spots remaining</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="ml-8 flex flex-col items-end space-y-3">
+                  <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
+                    {hasNurolePlus ? 'Register Now' : 'Upgrade to Join'}
+                  </button>
+                  <button className="bg-white bg-opacity-20 text-white px-6 py-2 rounded-full text-sm hover:bg-opacity-30 transition-colors">
+                    Add to Calendar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* About */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">About this event</h2>
+                <p className="text-grey-700 leading-relaxed mb-6">{event.longDescription}</p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {event.tags.map((tag, index) => (
+                    <span key={index} className="bg-sage-100 text-sage-700 px-3 py-1 rounded-full text-sm">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </section>
+
+              {/* Agenda */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">Agenda</h2>
+                <div className="space-y-3">
+                  {event.agenda.map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3 p-3 bg-grey-50 rounded-lg">
+                      <span className="bg-sage-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">
+                        {index + 1}
+                      </span>
+                      <span className="text-grey-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Learning Outcomes */}
+              <section>
+                <h2 className="text-2xl font-semibold text-grey-900 mb-4">What you'll learn</h2>
+                <div className="space-y-3">
+                  {event.learningOutcomes.map((outcome, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <span className="material-symbols-rounded text-sage-600 text-sm mt-1">check_circle</span>
+                      <span className="text-grey-700">{outcome}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Event Details Card */}
+              <div className="bg-white border border-grey-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-grey-900 mb-4">Event Details</h3>
+                <div className="space-y-4">
+                  <div>
+                    <div className="text-sm text-grey-600 mb-1">Facilitator</div>
+                    <div className="font-medium text-grey-900">{event.facilitator}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-grey-600 mb-1">Duration</div>
+                    <div className="font-medium text-grey-900">{event.duration}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-grey-600 mb-1">Max Attendees</div>
+                    <div className="font-medium text-grey-900">{event.maxAttendees}</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-grey-600 mb-1">Availability</div>
+                    <div className="font-medium text-sage-600">{event.spotsRemaining} spots remaining</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Requirements */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-grey-900 mb-3">Requirements</h3>
+                <p className="text-sm text-grey-700">{event.requirements}</p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                {hasNurolePlus ? (
+                  <button className="button-primary w-full">
+                    Register for Event
+                  </button>
+                ) : (
+                  <button 
+                    onClick={handleSubscription}
+                    className="button-primary w-full"
+                  >
+                    Upgrade to Join Event
+                  </button>
+                )}
+                <button className="button-secondary w-full">
+                  Share Event
+                </button>
+                <button className="button-secondary w-full">
+                  Add to Wishlist
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const AllEventsPage = () => {
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="container mx-auto px-4 py-8">
+          {/* Back Button */}
+          <div className="mb-6">
+            <button 
+              onClick={() => setCurrentPage('dashboard')}
+              className="flex items-center text-grey-600 hover:text-grey-800 transition-colors"
+            >
+              ← Back to Dashboard
+            </button>
+          </div>
+
+          {/* Page Header */}
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-lg p-8 text-white">
+              <h1 className="text-4xl font-semibold mb-2">Community events</h1>
+              <p className="text-xl"><span className="text-orange-400">connect</span> and learn</p>
+            </div>
+          </div>
+
+          {/* Full calendar of events */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-semibold text-grey-900">Full calendar of events</h2>
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-grey-600">View:</span>
+                <select className="select-input text-sm">
+                  <option>All events</option>
+                  <option>Workshops</option>
+                  <option>Networking</option>
+                  <option>Masterclasses</option>
+                </select>
+              </div>
+            </div>
+
+            {/* August 2025 */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-grey-900 mb-4 pb-2 border-b border-grey-200">August 2025</h3>
+              <div className="space-y-4">
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">interview_preparation</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Board interview preparation</h4>
+                        <p className="text-sm text-grey-600">Thursday, Aug 21 • 10 - 11:00 AM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-medium">NEW</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="font-semibold text-gray-800 mb-3">Quick Actions</h4>
-                  <div className="space-y-3">
-                    <button className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition-colors">
-                      Apply Now
-                    </button>
-                    <button className="w-full border border-gray-300 hover:border-gray-400 text-gray-700 py-2 px-4 rounded transition-colors">
-                      Save Role
-                    </button>
-                    <button className="w-full border border-gray-300 hover:border-gray-400 text-gray-700 py-2 px-4 rounded transition-colors">
-                      Share Role
-                    </button>
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">groups</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Focus groups - Building a more impactful NED network</h4>
+                        <p className="text-sm text-grey-600">Wednesday, Aug 27 • 7:00 - 9:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-medium">LIVE</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="font-semibold text-gray-800 mb-3">Similar Roles</h4>
-                  <div className="space-y-3">
-                    {dummyJobs.filter(j => j.id !== job.id && j.category === job.category).slice(0, 2).map(similarJob => (
-                      <div key={similarJob.id} className="border border-gray-200 rounded p-3 hover:bg-white cursor-pointer transition-colors"
-                           onClick={() => viewJobDetails(similarJob.id)}>
-                        <div className="font-medium text-gray-800 text-sm mb-1">{similarJob.title}</div>
-                        <div className="text-gray-600 text-xs">{similarJob.company}</div>
-                        <div className="text-gray-500 text-xs mt-1">{similarJob.location}</div>
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">school</span>
                       </div>
-                    ))}
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Introduction to Nurole Plus</h4>
+                        <p className="text-sm text-grey-600">Wednesday, Aug 21 • 1:00 - 2:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-medium">LIVE</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* September 2025 */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-grey-900 mb-4 pb-2 border-b border-grey-200">September 2025</h3>
+              <div className="space-y-4">
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">psychology</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Board Pathway programme - Pathway 1: Kickstart your NED career</h4>
+                        <p className="text-sm text-grey-600">Wednesday, Sep 3 • 5:30 - 6:30 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">trending_up</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Board Pathway programme - Pathway 2: Developing your NED career</h4>
+                        <p className="text-sm text-grey-600">Thursday, Sep 4 • 5:30 - 6:30 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">diversity_1</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Community Autumn Book Club</h4>
+                        <p className="text-sm text-grey-600">Sunday, Sep 8 • 4:00 - 5:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-medium">FREE</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">handshake</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Meet the headhunters</h4>
+                        <p className="text-sm text-grey-600">Thursday, Sep 12 • 6:00 - 7:30 PM GMT</p>
+                        <span className="text-xs text-grey-500">Registration required</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-grey-200 text-grey-600 px-2 py-1 rounded text-xs">FULL</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-secondary text-xs px-3 py-1" disabled>WAITLIST</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* October 2025 */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-grey-900 mb-4 pb-2 border-b border-grey-200">October 2025</h3>
+              <div className="space-y-4">
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">public</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Building a world-class brand on LinkedIn</h4>
+                        <p className="text-sm text-grey-600">Thursday, Oct 3 • 6:00 - 7:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">quiz</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Q&A: Meet our expert headhunters</h4>
+                        <p className="text-sm text-grey-600">Tuesday, Oct 15 • 1:00 - 2:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Members only</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-blue-600">chair</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Elevate: Chair New presidency Boards and beyond</h4>
+                        <p className="text-sm text-grey-600">Wednesday, Oct 16 • 5:00 - 6:00 PM GMT</p>
+                        <span className="text-xs text-grey-500">Virtual</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* November 2025 */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-grey-900 mb-4 pb-2 border-b border-grey-200">November 2025</h3>
+              <div className="space-y-4">
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">elevator</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Nail your elevator pitch (workshop)</h4>
+                        <p className="text-sm text-grey-600">Tuesday, Nov 12 • 6:00 - 7:30 PM GMT</p>
+                        <span className="text-xs text-grey-500">Interactive</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className="bg-grey-200 text-grey-600 px-2 py-1 rounded text-xs">Not going</span>
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-secondary text-xs px-3 py-1">CHANGE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* December 2025 */}
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-grey-900 mb-4 pb-2 border-b border-grey-200">December 2025</h3>
+              <div className="space-y-4">
+                <div className="bg-white border border-grey-200 rounded-lg p-4 hover:shadow-sm transition-shadow">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <span className="material-symbols-rounded text-orange-600">search</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-grey-900 mb-1">Meet the headhunters</h4>
+                        <p className="text-sm text-grey-600">Thursday, Dec 4 • 5:30 - 6:30 PM GMT</p>
+                        <span className="text-xs text-grey-500">Executive search</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button className="button-secondary text-xs px-3 py-1">Event details</button>
+                      <button className="button-primary text-xs px-3 py-1">JOIN</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1870,7 +2454,7 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center justify-center flex-1">
-              <h1 className="text-xl font-bold tracking-wider mr-8">NUROLE</h1>
+              <h1 className="text-xl font-semibold tracking-wider mr-8">NUROLE</h1>
               <nav className="flex space-x-6 text-sm">
                 <button 
                   onClick={() => setCurrentPage('dashboard')}
@@ -1944,6 +2528,7 @@ function App() {
           hasNurolePlus={hasNurolePlus}
           setCurrentPage={setCurrentPage}
           viewJobDetails={viewJobDetails}
+          viewEventDetails={viewEventDetails}
           handleSubscription={handleSubscription}
         />
       }
@@ -1959,12 +2544,15 @@ function App() {
           handleSubscription={handleSubscription}
           setCurrentPage={setCurrentPage}
           viewJobDetails={viewJobDetails}
+          viewEventDetails={viewEventDetails}
         />
       }
       {currentPage === 'nurole-plus' && <NurolePlusPage />}
       {currentPage === 'get-nurole-plus' && <GetNurolePlusPage />}
       {currentPage === 'my-profile' && <MyProfilePage />}
       {currentPage === 'job-details' && <RoleDetailsPage />}
+      {currentPage === 'all-events' && <AllEventsPage />}
+      {currentPage === 'event-details' && <EventDetailsPage />}
     </div>
   )
 }
